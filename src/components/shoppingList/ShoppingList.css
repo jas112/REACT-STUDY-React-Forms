@@ -1,0 +1,41 @@
+.ShoppingList-Console{
+    width: 700px;
+    min-width: 300px;
+    height: 700px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+    padding: 25px 5px;
+    margin: 0px auto;
+}
+
+.ShoppingList-Console-Panel{
+    width: 45%;
+    min-width: 200px;
+    height: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+}
+
+.ShoppingList-Item{
+    width: 92%;
+    min-width: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px #000000;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    font-weight: 700px;
+    border-radius: 3px;
+    padding: 2px;
+    margin: 15px auto
+}

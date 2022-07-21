@@ -1,0 +1,45 @@
+.ShoppingForm-Console{
+    width: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+    padding: 0px 5px 25px 5px;
+}
+
+.ShoppingForm{
+    width: 180px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+    padding: 0px 5px 5px 5px;
+}
+
+.ShoppingForm-Submit-Button{
+    width: 100%;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #2d2d2d;
+}
+
+.ShoppingForm-Panel{
+    width: 180px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+    padding: 0px 5px 5px 5px;
+    margin:25px 0px;
+}
+
+.ShoppingForm-Panel-Text{
+    text-align: left;
+}

@@ -24,13 +24,21 @@ class ShoppingForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor='name'>Name: </label>
-        <input id='name' name='name' value={this.state.name} onChange={this.handleChange} />&nbsp;&nbsp;
-        <label htmlFor='qty'>Qty: </label>
-        <input id='qty' name='qty' value={this.state.qty} onChange={this.handleChange} />&nbsp;&nbsp;
-        <button type='submit'>Submit</button>
-      </form>
+        <div className='ShoppingForm-Console'>
+            <h1>Add to List</h1>
+            <form onSubmit={this.handleSubmit} className='ShoppingForm'>
+                <label htmlFor='name'>Name: </label>
+                <input id='name' name='name' value={this.state.name} onChange={this.handleChange} /><br/>
+                <label htmlFor='qty'>Qty: </label>
+                <input id='qty' name='qty' value={this.state.qty} onChange={this.handleChange} /><br/>
+                <button type='submit' className='ShoppingForm-Submit-Button'>Submit</button>
+            </form>
+            <div className='ShoppingForm-Panel'>
+                <p className='ShoppingForm-Panel-Text'>Use the form above to add new items to the shopping list.</p>
+                
+            </div>
+        </div>
+      
     )
   }
 }

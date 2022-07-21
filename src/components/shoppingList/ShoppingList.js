@@ -26,22 +26,26 @@ class ShoppingList extends Component {
 
     renderItems(){
         return (
-            <ul>
+            <div>
                 {this.state.items.map(item => (
-                    <li key={item.id}>
+                    <div key={item.id} className='ShoppingList-Item'>
                         {item.name} : {item.qty}
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         );
     }
 
   render() {
     return (
-        <div>
-            <h1>ShoppingList</h1>
-            {this.renderItems()}
-            <ShoppingForm addToList={this.addToList} />
+        <div className='ShoppingList-Console'>
+            <div className='ShoppingList-Console-Panel'>
+                <h1>ShoppingList</h1>
+                {this.renderItems()}
+            </div>
+            <div className='ShoppingList-Console-Panel'>
+                <ShoppingForm addToList={this.addToList} />
+            </div>
         </div>
     )
   }

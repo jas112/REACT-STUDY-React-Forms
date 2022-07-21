@@ -21,17 +21,22 @@ class Form extends Component {
 
   render() {
     return (
-      <div>
+      <div className='Form-Console'>
+        <div className='Form-Panel'>
         <h1>Test Form</h1>
-        <form onSubmit={this.handleSubmit}>
-            <input 
-                type='text' 
-                value={this.state.username} 
-                onChange={this.handleChange} 
-            />
-            <button type='submit'>Submit</button>
-        </form>
-        <p>{this.state.username}</p>
+            <form onSubmit={this.handleSubmit}>
+                <input 
+                    type='text' 
+                    value={this.state.username} 
+                    onChange={this.handleChange} 
+                />
+                <button type='submit' className='Form-Submit-Button'>Submit</button>
+            </form>
+        </div>
+        <div className='Form-Panel'>
+            {/* <p>&nbsp;{this.state.username}&nbsp;</p> */}
+            <textarea value={this.state.username}></textarea>
+        </div>
       </div>
     )
   }

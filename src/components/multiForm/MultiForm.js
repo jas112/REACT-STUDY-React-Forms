@@ -22,42 +22,54 @@ class MultiForm extends Component {
         this.setState({username: '', email: '', password: ''});
     }
   render() {
+
+    let usernameOutputMarker = '<< USERNAME >>';
+    let emailOutputMarker = '<< EMAIL >>';
+    let passwordOutputMarker = '<< PASSWORD >>';
+
     return (
-        <div>
+        <div className='MultiForm-Console'>
             <h1>MultiForm</h1>
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor='username'>Username</label><br/>
-                <input 
-                    type='text'
-                    name='username' 
-                    value={this.state.username} 
-                    placeholder='username'
-                    onChange={this.handleChange} 
-                />
-                <br/>
-                <label htmlFor='email'>Email</label><br/>
-                <input 
-                    type='email' 
-                    name='email'
-                    value={this.state.email}
-                    placeholder='email'
-                    onChange={this.handleChange}
-                />
-                <br/>
-                <label htmlFor='password'>password</label><br/>
-                <input 
-                    type='password' 
-                    name='password'
-                    value={this.state.password}
-                    placeholder='password'
-                    onChange={this.handleChange}
-                />
-                <br/><br/>
-                <button type='submit'>Submit</button>
-            </form>
-            <p>{this.state.username}</p>
-            <p>{this.state.email}</p>
-            <p>{this.state.password}</p>
+            <div className='MultiForm-Panel'>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor='username'>Username</label><br/>
+                    <input 
+                        type='text'
+                        name='username' 
+                        value={this.state.username} 
+                        placeholder='username'
+                        onChange={this.handleChange} 
+                    />
+                    <br/>
+                    <label htmlFor='email'>Email</label><br/>
+                    <input 
+                        type='email' 
+                        name='email'
+                        value={this.state.email}
+                        placeholder='email'
+                        onChange={this.handleChange}
+                    />
+                    <br/>
+                    <label htmlFor='password'>password</label><br/>
+                    <input 
+                        type='password' 
+                        name='password'
+                        value={this.state.password}
+                        placeholder='password'
+                        onChange={this.handleChange}
+                    />
+                    <br/><br/>
+                    <button type='submit' className='MultiForm-Submit-Button'>Submit</button>
+                </form>
+            </div>
+            <div className='MultiForm-Panel'>
+                <h3>{usernameOutputMarker}</h3>
+                <p>&nbsp;{this.state.username}&nbsp;</p>
+                <h3>{emailOutputMarker}</h3>
+                <p>&nbsp;{this.state.email}&nbsp;</p>
+                <h3>{passwordOutputMarker}</h3>
+                <p>&nbsp;{this.state.password}&nbsp;</p>
+            </div>
         </div>
     )
   }

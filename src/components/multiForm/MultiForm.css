@@ -1,0 +1,33 @@
+.MultiForm-Console{
+    width: 700px;
+    min-width: 300px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+    padding: 25px 5px;
+    margin: 0px auto;
+}
+
+.MultiForm-Panel{
+    width: 80%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 3px 3px 6px #000000;
+    border-radius: 3px;
+    padding: 25px 5px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.MultiForm-Submit-Button{
+    width: 100%;
+    border-radius: 3px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #2d2d2d;
+}

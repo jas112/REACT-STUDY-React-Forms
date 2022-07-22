@@ -28,9 +28,9 @@ class BoxForm extends Component {
         <div className='BoxForm-Panel'>
             <h3>Add A Box</h3>
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor='boxColor'>Box Color</label>
-                <input id='boxColor' name='boxColor' value={this.state.boxColor} onChange={this.handleChange} className='BoxForm-input' />
-                <label htmlFor='boxDimension'>Box Dimension</label>
+                <label htmlFor='boxColor'>Color: </label>
+                <input id='boxColor' name='boxColor' value={this.state.boxColor} onChange={this.handleChange} className='BoxForm-input' />&nbsp;&nbsp;
+                <label htmlFor='boxDimension'>Dimension: </label>
                 <input id='boxDimension' name='boxDimension' value={this.state.boxDimension} onChange={this.handleChange} className='BoxForm-input' />
                 <button type='submit' className='BoxForm-Button'>Add Box</button>
             </form>

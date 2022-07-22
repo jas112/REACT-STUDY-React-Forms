@@ -5,6 +5,11 @@ import BoxForm from '../boxForm/BoxForm';
 import './BoxList.css';
 
 class BoxList extends Component {
+
+    static defaultProps = {
+        defaultHeight: '300',
+    };
+
     constructor(props){
         super(props);
         this.state = {boxes: []};
@@ -54,9 +59,10 @@ class BoxList extends Component {
             <div className='BoxList-Form-Panel'>
                 <BoxForm addBox={this.addBox} />
             </div>
+            <p>{this.state.boxes.length ? 'Click Color Tile To Remove.' : ''}</p>
             <div className='BoxList-Display-Panel'>
                 {this.state.boxes.map(box => (
-                    <Box key={uuidv4()} idxValue={this.state.boxes.indexOf(box)} boxDimension={box.boxDimension} boxColor={box.boxColor} removeBox={this.removeBox} />
+                    <Box key={uuidv4()} idxValue={this.state.boxes.indexOf(box)} boxDimension={box.boxDimension} defaultHeightValue={this.props.defaultHeight} boxColor={box.boxColor} removeBox={this.removeBox} />
                 ))}
             </div>
         </div>

@@ -14,8 +14,7 @@ class Box extends Component {
   render() {
     return (
       <div className='Box-Console'>
-        <div style={{width: `${this.props.boxDimension}px`, height: `${this.props.boxDimension}px`, backgroundColor: this.props.boxColor}} className='Box' onClick={this.handleClick}>
-            <div>{this.props.boxColor}</div>
+        <div style={{width: `${this.props.boxDimension}px`, height: `${this.props.defaultHeightValue}px`, backgroundColor: this.props.boxColor}} className='Box' onClick={this.handleClick} title={this.props.boxColor}>
             <div>{this.props.idxValue}</div>
         </div>
       </div>

@@ -1,0 +1,12 @@
+.TodoItem{
+    transition: 1s;
+}
+
+.TodoItem-Todo-Content{
+    transition: 1s;
+}
+
+.TodoItem-Todo-Complete{
+    text-decoration: line-through;
+    transition: 1s;
+}

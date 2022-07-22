@@ -30,10 +30,15 @@ class TodoList extends Component {
     }
 
     editTodoItem(idx, newContentStr){
+
+        console.log(`idx: ${idx} | newContentStr: ${newContentStr}`)
+
         this.setState(st => {
             let newState = {...st};
             newState.thingsToDo[idx].contentString = newContentStr; 
+            return newState;
         });
+        
     }
 
     removeTodoItem(idx){

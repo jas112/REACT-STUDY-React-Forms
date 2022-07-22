@@ -5,7 +5,7 @@ class TodoItem extends Component {
     constructor(props){
         super(props);
         this.state = {
-            newConent: '',
+            todoTask: this.props.contentString,
             itemFinished: false,
             editThisItem: false
         };
@@ -25,7 +25,7 @@ class TodoItem extends Component {
         return (
             <div className='TodoItemContent'>
                 <form onSubmit={this.handleEdit}>
-                    <input id='newContent' name='newContent' value={this.state.newContent} onChange={this.handleChange} placeholder='Enter new item value...' />
+                    <input id='todoTask' name='todoTask' value={this.state.todoTask} onChange={this.handleChange} placeholder='Enter new item value...' />
                     <button onSubmit={this.handleEdit}>Save</button>
                 </form>
             </div>
@@ -35,7 +35,7 @@ class TodoItem extends Component {
     generateItem(){
         return (
             <div className='TodoItemContent'>
-                {this.props.contentString}
+                {this.state.todoTask}
                 <button onClick={this.handleClick}>E</button>
                 <button onClick={this.handleRemove}>X</button>
             </div>
@@ -48,8 +48,9 @@ class TodoItem extends Component {
 
     handleEdit(evt){
         evt.preventDefault();
-        this.props.editItem(this.props.itemIdx, this.state.newConent);
-        this.setState({newContent: '', editThisItem: false});
+        console.log(`TodoItem this.state.todoTask: ${this.state.todoTask}...`);
+        this.props.editItem(this.props.itemIdx, this.state.todoTask);
+        this.setState({todoTask: this.props.contentString, editThisItem: false});
     }
 
     handleRemove(evt){

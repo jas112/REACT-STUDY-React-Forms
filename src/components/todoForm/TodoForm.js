@@ -18,13 +18,14 @@ class TodoForm extends Component {
     handleSubmit(evt){
         evt.preventDefault();
         this.props.addItem(this.state);
+        this.setState({contentString: ''});
     }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-            <input id='contentString' name='contentString' value={this.state.contentString} onChange={this.handleChange} placeholder='Add new todo item...' />
+            <input type='text' id='contentString' name='contentString' value={this.state.contentString} onChange={this.handleChange} placeholder='Add new todo item...' />
             <button type='submit'>Add Todo Item</button>
         </form>
       </div>

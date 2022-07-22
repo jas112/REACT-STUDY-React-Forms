@@ -16,7 +16,7 @@ class TodoList extends Component {
     generateTodoList(){
 
         let todoList = this.state.thingsToDo.map(item =>(
-            <TodoItem key={uuidv4()} contentString={item.contentString} editItem={this.editTodoItem} removeTodoItem={this.removeTodoItem} />
+            <TodoItem key={uuidv4()} itemIdx={this.state.thingsToDo.indexOf(item)} contentString={item.contentString} editItem={this.editTodoItem} removeItem={this.removeTodoItem} />
         ));
 
         return todoList;
@@ -24,9 +24,8 @@ class TodoList extends Component {
 
     addTodoItem(newItem){
         this.setState(st => {
-            let newState = {...st};
-            newState.thingsToDo.push(newItem);
-            return newState
+            let newThingsToDo = [...st.thingsToDo, newItem];
+            return {thingsToDo: newThingsToDo}
         });
     }
 

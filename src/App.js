@@ -1,7 +1,8 @@
-import Form from './components/form/Form';
-import MultiForm from './components/multiForm/MultiForm';
-import ShoppingList from './components/shoppingList/ShoppingList';
-import BoxList from './components/boxList/BoxList';
+// import Form from './components/form/Form';
+// import MultiForm from './components/multiForm/MultiForm';
+// import ShoppingList from './components/shoppingList/ShoppingList';
+// import BoxList from './components/boxList/BoxList';
+import TodoList from './components/todoList/TodoList';
 import './App.css';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       {/* <Form /> */}
       {/* <MultiForm /> */}
       {/* <ShoppingList /> */}
-      <BoxList />
+      {/* <BoxList /> */}
+      <TodoList />
     </div>
   );
 }

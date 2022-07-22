@@ -1,0 +1,35 @@
+.BoxList-Console{
+    width: 600px;
+    max-width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 3px 18px 3px;
+    box-shadow: 2px 2px 5px #00000050;
+    border-radius: 2px;
+    margin: 30px auto;
+}
+
+.BoxList-Form-Panel{
+    width: 95%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    box-shadow: 2px 2px 5px #00000050;
+    border-radius: 2px;
+}
+
+.BoxList-Display-Panel{
+    width: 95%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    box-shadow: 2px 2px 5px #00000050;
+    border-radius: 2px;
+    margin: 30px auto;
+}

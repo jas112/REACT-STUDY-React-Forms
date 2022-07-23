@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TodoForm from '../todoForm/TodoForm';
 import TodoItem from '../todoItem/TodoItem';
-import { v4 as uuidv4 } from 'uuid';
 import './TodoList.css';
 
 class TodoList extends Component {
@@ -10,13 +9,21 @@ class TodoList extends Component {
         this.state = {thingsToDo: []};
         this.addTodoItem = this.addTodoItem.bind(this);
         this.editTodoItem = this.editTodoItem.bind(this);
+        this.toggleIsCompleted = this.toggleIsCompleted.bind(this);
         this.removeTodoItem = this.removeTodoItem.bind(this);
     }
 
     generateTodoList(){
 
         let todoList = this.state.thingsToDo.map(item =>(
-            <TodoItem key={uuidv4()} itemIdx={this.state.thingsToDo.indexOf(item)} contentString={item.contentString} editItem={this.editTodoItem} removeItem={this.removeTodoItem} />
+            <TodoItem 
+                key={item.id} 
+                itemIdxValue={this.state.thingsToDo.indexOf(item)} 
+                todoTaskValue={item.todoTask} 
+                isCompletedValue={item.isCompleted}
+                editItem={this.editTodoItem}
+                toggleCompleted={this.toggleIsCompleted}
+                removeItem={this.removeTodoItem} />
         ));
 
         return todoList;
@@ -29,16 +36,66 @@ class TodoList extends Component {
         });
     }
 
-    editTodoItem(idx, newContentStr){
+    editTodoItem(idx, newTaskStr){
 
-        console.log(`idx: ${idx} | newContentStr: ${newContentStr}`)
+        console.log(`idx: ${idx} | newTaskStr: ${newTaskStr}`);
 
         this.setState(st => {
             let newState = {...st};
-            newState.thingsToDo[idx].contentString = newContentStr; 
+            newState.thingsToDo[idx].todoTask = newTaskStr; 
             return newState;
         });
-        
+    }
+
+    toggleIsCompleted(idx){
+
+        console.log(`toggling status of idx: ${idx}`);
+
+        let newState = {...this.state};
+        let targetTask = {...newState.thingsToDo[idx]}
+
+        console.log(`targetTask.isCompleted before: ${JSON.stringify(targetTask.isCompleted)}`);
+
+        targetTask.isCompleted = !targetTask.isCompleted;
+
+        console.log(`targetTask.isCompleted after: ${JSON.stringify(targetTask.isCompleted)}`);
+
+        newState.thingsToDo[idx] = targetTask;
+
+        this.setState(newState);
+
+
+        // this.setState(st => {
+
+        //     let newThingsToDo = [...st.thingsToDo];
+        //     console.log(`newThingsToDo before: ${JSON.stringify(newThingsToDo)}`);
+
+        //     newThingsToDo[idx].isCompleted = !newThingsToDo[idx].isCompleted; 
+        //     console.log(`newThingsToDo after: ${JSON.stringify(newThingsToDo)}`);
+
+        //     return {thingsToDo: newThingsToDo}
+        // });
+
+        // this.setState(st => {
+
+        //     let newState = {...st};
+        //     console.log(`newThingsToDo before: ${JSON.stringify(newState.thingsToDo)}`);
+
+        //     newState.thingsToDo[idx].isCompleted = !newState.thingsToDo[idx].isCompleted; 
+        //     console.log(`newThingsToDo after: ${JSON.stringify(newState.thingsToDo)}`);
+
+        //     return newState;
+        // });
+
+        // this.setState(st => {
+        //     let newThingsToDo = [...st.thingsToDo];
+        //     console.log(`newThingsToDo before: ${JSON.stringify(newThingsToDo)}`);
+        //     console.log(`toggling status of idx: ${idx} | current status value: ${newThingsToDo[idx].itemStatus}`);
+        //     newThingsToDo[idx].itemStatus = !newThingsToDo[idx].itemStatus; 
+        //     console.log(`newThingsToDo after: ${JSON.stringify(newThingsToDo)}`);
+        //     console.log(`toggling status of idx: ${idx} | new status value: ${newThingsToDo[idx].itemStatus}`);
+        //     return {thingsToDo: newThingsToDo};
+        // });
     }
 
     removeTodoItem(idx){
@@ -62,6 +119,7 @@ class TodoList extends Component {
         <div className='TodoList-Form-Panel'>
             <TodoForm addItem={this.addTodoItem} />
         </div>
+        {JSON.stringify(this.state.thingsToDo)}
       </div>
     )
   }

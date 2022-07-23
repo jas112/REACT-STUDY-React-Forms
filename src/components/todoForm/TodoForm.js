@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './TodoForm.css';
 
 class TodoForm extends Component {
     constructor(props){
         super(props);
-        this.state = {contentString: ''};
+        this.state = {todoTask: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -17,15 +18,16 @@ class TodoForm extends Component {
 
     handleSubmit(evt){
         evt.preventDefault();
-        this.props.addItem(this.state);
-        this.setState({contentString: ''});
+        let newTodoItem = {todoTask: this.state.todoTask, id: uuidv4(), isCompleted: false}
+        this.props.addItem(newTodoItem);
+        this.setState({todoTask: ''});
     }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-            <input type='text' id='contentString' name='contentString' value={this.state.contentString} onChange={this.handleChange} placeholder='Add new todo item...' />
+            <input type='text' id='todoTask' name='todoTask' value={this.state.todoTask} onChange={this.handleChange} placeholder='Add new todo item...' />
             <button type='submit'>Add Todo Item</button>
         </form>
       </div>

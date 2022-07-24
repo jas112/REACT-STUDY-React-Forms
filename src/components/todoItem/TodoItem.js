@@ -32,11 +32,12 @@ class TodoItem extends Component {
 
     handleEdit(evt){
         evt.preventDefault();
-        this.props.editItem(this.props.itemIdxValue, this.state.todoTask);
-        if(this.props.isCompleted) {
-            this.props.toggleCompleted(this.props.itemIdxValue)
-        } 
-        this.setState({todoTask: this.state.todoTask, isCompleted: false, editThisItem: false});
+        if (this.state.todoTask === '') {
+            alert('Please enter a valid value for your task...')
+        } else {
+            this.props.editItem(this.props.itemIdxValue, this.state.todoTask);
+            this.setState({editThisItem: false});
+        }
     }
 
     handleRemove(evt){
@@ -45,16 +46,17 @@ class TodoItem extends Component {
 
     generateItemForm(){
         return (
-            <div className='TodoItemContent'>
-                <form onSubmit={this.handleEdit}>
+            <div className='TodoItem-Content'>
+                <form onSubmit={this.handleEdit} className='TodoItem-EditForm'>
                     <input 
                         id='todoTask' 
                         name='todoTask' 
                         value={this.state.todoTask} 
                         onChange={this.handleChange} 
                         placeholder='Enter new item value...' 
+                        className='TodoItem-EditForm-Input'
                     />
-                    <button type='submit'>Save</button>
+                    <button type='submit' className='TodoItem-EditForm-Btn'>Save</button>
                 </form>
             </div>
         );
@@ -62,15 +64,15 @@ class TodoItem extends Component {
 
     generateItem(){
         return (
-            <div className='TodoItemContent'>
+            <div className={this.props.isCompletedValue ? 'TodoItem-Content TodoItem-Completed' :  'TodoItem-Content TodoItem-Incomplete'}>
                 <div 
                     className={this.props.isCompletedValue ? 'TodoItem-Content-Task TodoItem-Content-Task-isCompleted' :  'TodoItem-Content-Task TodoItem-Content-Task-isNotCompleted'}
                     onClick={this.handleToggleCompleted}
                 >
                     {this.props.todoTaskValue}
                 </div>
-                <button onClick={this.handleClick}>E</button>
-                <button onClick={this.handleRemove}>X</button>
+                <button className='TodoItem-Content-Btn TodoItem-Content-Btn-Edit' onClick={this.handleClick} title='Edit Task'>&#9998;</button>
+                <button className='TodoItem-Content-Btn TodoItem-Content-Btn-Remove' onClick={this.handleRemove} title='Remove Task'>&#9760;</button>
             </div>
         );
     }
@@ -82,8 +84,8 @@ class TodoItem extends Component {
     let thisItemForm = this.generateItemForm();
 
     return (
-      <div className='TodoItem'>
-        {`state.props.todoTask: ${this.props.todoTaskValue} | this.state.todoTask: ${this.state.todoTask} | this.state.isCompleted: ${this.state.isCompleted.toString()}`}
+      <div className={this.props.isCompletedValue ? 'TodoItem TodoItem-Completed' :  'TodoItem TodoItem-Incomplete'}>
+        {/* {`state.props.todoTask: ${this.props.todoTaskValue} | this.state.todoTask: ${this.state.todoTask} | this.state.isCompleted: ${this.state.isCompleted.toString()}`} */}
         {this.state.editThisItem ? thisItemForm : thisItem}
       </div>
     )

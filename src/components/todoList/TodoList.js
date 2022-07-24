@@ -29,6 +29,20 @@ class TodoList extends Component {
         return todoList;
     }
 
+    generateTodoListStandBy(){
+
+        return (
+            <div className='TodoList-Standby'>
+                <div className='TodoList-Divider'></div>
+                <div className='TodoList-Divider'></div>
+                <h3>there are not items on your list.</h3>
+                <div className='TodoList-Divider'></div>
+                <div className='TodoList-Divider'></div>
+            </div>
+        );
+
+    }
+
     addTodoItem(newItem){
         this.setState(st => {
             let newThingsToDo = [...st.thingsToDo, newItem];
@@ -43,6 +57,7 @@ class TodoList extends Component {
         this.setState(st => {
             let newState = {...st};
             newState.thingsToDo[idx].todoTask = newTaskStr; 
+            newState.thingsToDo[idx].isCompleted = false;
             return newState;
         });
     }
@@ -110,16 +125,20 @@ class TodoList extends Component {
 
     let currentTodoList = this.generateTodoList();
 
+    let standbyEle = this.generateTodoListStandBy();
+
     return (
       <div className='TodoList-Console'>
         <div className='TodoList-Title'>TodoList</div>
+        <div className='TodoList-Divider'></div>
         <div className='TodoList-Item-Display'>
-            {currentTodoList.length ? currentTodoList : 'there are not items on your list.'}
+            {currentTodoList.length ? currentTodoList : standbyEle}
         </div>
+        <div className='TodoList-Divider'></div>
         <div className='TodoList-Form-Panel'>
             <TodoForm addItem={this.addTodoItem} />
         </div>
-        {JSON.stringify(this.state.thingsToDo)}
+        {/* {JSON.stringify(this.state.thingsToDo)} */}
       </div>
     )
   }

@@ -1,31 +1,167 @@
+@keyframes pendingTaskPulse {
+    0%   {
+            text-shadow: 0px 0px 6px #0195ff; 
+            box-shadow: 0px 0px 9px #0195ff;
+            background: linear-gradient(90deg, transparent, #0195ff20, transparent);
+        }
+    50%  {
+            text-shadow: 0px 0px 28px #0195ff;
+            box-shadow: 0px 0px 24px #0195ff;
+            background: linear-gradient(90deg, transparent, #0195ff20, transparent);
+        }
+    100% {
+            box-shadow: 0px 0px 6px #0195ff; 
+            box-shadow: 0px 0px 9px #0195ff;
+            background: linear-gradient(90deg, transparent, #0195ff20, transparent);
+        }
+}
+
+
 .TodoItem{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    background: linear-gradient(90deg, transparent, #0195ff20, transparent);
     transition: 1s;
 }
 
-.TodoItem-Todo-Content{
+.TodoItem-Incomplete{
+    text-shadow: 0px 0px 9px #0195ff;
+    box-shadow: 0px 0px 19px #0195ff;
+    background: linear-gradient(90deg, transparent, #0195ff20, transparent);
+    animation: pendingTaskPulse 3s infinite;
+}
+
+.TodoItem-Completed{
+    text-shadow: 0px 0px 9px #ff0101;
+    box-shadow: 0px 0px 19px #ff0101;
+    background: linear-gradient(90deg, transparent, #ff010120, transparent);
+    opacity: .6;
+}
+
+.TodoItem-Content{
+    width: 95%;
+    padding: 10px 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid white; */
     transition: 1s;
 }
 
 .TodoItem-Content-Task{
+    width: 69%;
+    height: 30px;
+    color:#0195ff;
+    font-size: 25px;
     font-weight: bold;
     cursor: pointer;
-    display: inline-block;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px 15px;
+    /* border: 1px solid white; */
     transition: 2s;
 }
 
 .TodoItem-Content-Task:hover{
-    color:#ed0d0d !important;
-    text-decoration: line-through;
+    /* color:#ff0101; */
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color:#ff0101;
+    text-shadow: 0px 0px 2px #ff0101;
+    /* text-decoration: line-through; */
     transition: 1.5s;
 }
 
 .TodoItem-Content-Task-isNotCompleted{
-    color:#000000;
+    color:#0195ff;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color:#0195ff;
     transition: 1.5s;
 }
 
 .TodoItem-Content-Task-isCompleted{
-    color:#ed0d0d;
-    text-decoration: line-through;
+    color:#ff0101;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color:#ff0101;
+    text-shadow: 0px 0px 9px #ff0101;
+    text-decoration:dottedy;
     transition: 1.5s;
+}
+
+.TodoItem-Content-Btn{
+    width: 14%;
+    height: 30px;
+    font-size: 18px;
+    color:#0195ff70;
+    background: transparent;
+    border: 2px solid #0195ff30;
+    transition: 1.5s;
+    margin: 0px 2px
+}
+
+.TodoItem-Content-Btn-Edit:hover{
+    color:#0195ff;
+    border: 2px solid #0195ff;
+    text-shadow: 0px 0px 9px #0195ff;
+    box-shadow: 0px 0px 19px #0195ff;
+    transition: .5s;
+}
+
+.TodoItem-Content-Btn-Remove:hover{
+    color:#ff0101;
+    border: 2px solid #ff0101;
+    text-shadow: 0px 0px 9px #ff0101;
+    box-shadow: 0px 0px 19px #ff0101;
+    transition: .5s;
+}
+
+.TodoItem-EditForm{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid white; */
+}
+
+.TodoItem-EditForm-Input{
+    width: 69%;
+    height:30px;
+    font-size: 15px;
+    color:#0195ff;
+    background: transparent;
+    border:none;
+    border-bottom: 2px solid #0195ff30;
+}
+
+.TodoItem-EditForm-Input:focus {
+    outline: none;
+}
+
+.TodoItem-EditForm-Btn{
+    width: 28%;
+    height:32px;
+    font-size: 15px;
+    color:#0195ff70;
+    background: transparent;
+    border: 2px solid #0195ff30;
+    transition: 1.5s;
+}
+
+.TodoItem-EditForm-Btn:hover{
+    color:#0195ff;
+    border: 2px solid #0195ff;
+    text-shadow: 0px 0px 9px #0195ff;
+    box-shadow: 0px 0px 19px #0195ff;
+    transition: .5s;
 }

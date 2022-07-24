@@ -18,17 +18,21 @@ class TodoForm extends Component {
 
     handleSubmit(evt){
         evt.preventDefault();
-        let newTodoItem = {todoTask: this.state.todoTask, id: uuidv4(), isCompleted: false}
-        this.props.addItem(newTodoItem);
-        this.setState({todoTask: ''});
+        if (this.state.todoTask === '') {
+            alert('Please enter a value for your task...')
+        } else {
+            let newTodoItem = {todoTask: this.state.todoTask, id: uuidv4(), isCompleted: false}
+            this.props.addItem(newTodoItem);
+            this.setState({todoTask: ''});
+        }
     }
 
   render() {
     return (
-      <div>
+      <div className='TodoForm-Console'>
         <form onSubmit={this.handleSubmit}>
-            <input type='text' id='todoTask' name='todoTask' value={this.state.todoTask} onChange={this.handleChange} placeholder='Add new todo item...' />
-            <button type='submit'>Add Todo Item</button>
+            <input type='text' id='todoTask' name='todoTask' value={this.state.todoTask} onChange={this.handleChange} placeholder='Add new todo item...' className='TodoForm-Input' />&nbsp;
+            <button type='submit' className='TodoForm-Btn' >Add Todo Item</button>
         </form>
       </div>
     )
